@@ -1,0 +1,48 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.form__user-name{
+  width: 50%;
+}
+.form__user-surname{
+  width: 50%;
+}
+.hidden{
+  display: none;
+}
+.sing-up-btn{
+  width: 80%;
+  margin: auto;
+}
+.form__label{
+  font-size:13px;
+}
+.dropdown-btn{
+    background-color: inherit;
+    width: 10px;  
+}
