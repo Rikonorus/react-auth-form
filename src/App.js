@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Flag from './components/Flag/Flag';
+import CountrySelector from './components/Flag/Flag';
 import ProfessionsList from './components/Profession/List';
 
 
@@ -21,7 +21,7 @@ class App extends Component {
     debugger;
     this.setState({
       profession: e.currentTarget.innerText,
-      professionSelected : true
+      professionSelected: true
     })
   }
   render() {
@@ -40,26 +40,76 @@ class App extends Component {
           <div className="form-group col-lg-12">
             <label htmlFor="inputProfession" className="text-secondary form__label">ПРОФЕССИЯ</label>
             <input type="text" className="form-control" id="inputProfession" onChange={this.handleChangeProfession} value={this.state.profession} />
-            {this.state.profession.length !== 0  
+            {this.state.profession.length !== 0
               && !this.state.professionSelected
-              && <ProfessionsList value={this.state.profession} clickHandler={this.selectProfession}/>}
+              && <ProfessionsList value={this.state.profession} clickHandler={this.selectProfession} />}
           </div>
         </div>
-        {/* <div className="form-group col-md-4"> */}
-        <label htmlFor="inputProfession" className="text-secondary form__label">ТЕЛЕФОН</label>
-        <div className="input-group mb-3">
-          <div className="input-group-prepend">
-            <span className="input-group-text" id="basic-addon3">
-              <Flag />
-            </span>
-          </div>
-          <input type="text" className="form-control" placeholder="+7 123 456 78 90" />
-        </div>
-        {/* </div> */}
+        <PhoneNumberInput />
         <button type="submit" className="btn btn-primary btn-block sing-up-btn">Зарегистрироваться</button>
       </form>
     );
   }
 }
+
+class PhoneNumberInput extends Component {
+  state = {
+    countryCode: "ru",
+    countryNumber: "+7"
+  };
+  changeCountryNumber = (e) => {
+    this.setState({ countryNumber: e.currentTarget.value });
+  };
+  changeCountyCode = (flag)=>{
+    this.setState({countryCode: flag.state.countryISO});
+  };
+  render() {
+    return (
+      <div>
+        <label htmlFor="inputProfession" className="text-secondary form__label">ТЕЛЕФОН</label>
+        <div className="input-group mb-3">
+          <div className="input-group-prepend">
+            <span className="input-group-text" id="basic-addon3">
+              <CountrySelector />
+            </span>
+          </div>
+          <CountryNumber onChange={this.changeCountryNumber} />
+          <Phone />
+        </div>
+      </div>
+    )
+  }
+}
+
+class CountryNumber extends Component {
+  render() {
+    return (
+      <input type="text"
+        className="form-control"
+        style={{
+          flexGrow: '0.2',
+          borderRight: 'none',
+          paddingRight: '0'
+        }}
+        onChange={this.props.onChange}
+        placeholder="+7" />)
+  }
+}
+class Phone extends Component {
+  render() {
+    return (
+      <input
+        type="text"
+        className="form-control"
+        style={{
+          borderLeft: 'none',
+          paddingLeft: '0'
+        }}
+        placeholder="123 456 78 90" />
+    )
+  }
+}
+
+
 
 export default App;
