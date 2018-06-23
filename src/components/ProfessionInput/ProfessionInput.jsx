@@ -4,13 +4,13 @@ import ProfessionsList from '../ProfessionList/ProfessionList';
 class ProfessionInput extends Component {
   state = {
     profession : this.props.value,
-    professionSelected : false
+    professionSelected : true
   };
 
   handleChangeProfession = (e) => {
     this.setState({
       profession : e.currentTarget.value,
-      professionSelected : true
+      professionSelected : false
     });
     this.props.onChange(e.currentTarget.value);
   };
@@ -30,7 +30,8 @@ class ProfessionInput extends Component {
                className="form-control"
                id="inputProfession"
                onChange={this.handleChangeProfession}
-               value={this.state.profession}/>
+               value={this.state.profession}
+               tabIndex="3"/>
         {this.state.profession.length !== 0
         && !this.state.professionSelected
         && <ProfessionsList value={this.state.profession}

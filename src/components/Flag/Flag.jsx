@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import PropTypes from "prop-types";
+import React from 'react';
+/*import PropTypes from "prop-types";*/
 import './flags.css';
 
 const Flag = (props) => {
@@ -8,8 +8,8 @@ const Flag = (props) => {
               value={props.countryCode}/>
 };
 
-Flag.propTypes = {
+/*Flag.propTypes = {
   countryCode : PropTypes.string.isRequired,
   onClick : PropTypes.func.isRequired
-};
+};*/
 export default Flag;

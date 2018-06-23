@@ -1,22 +1,21 @@
 import React, {Component} from 'react';
-import PropTypes from 'prop-types';
+
+/*import PropTypes from 'prop-types';*/
 
 class CountryNumber extends Component {
   render() {
     return (
       <input type="text"
-             className="form-control"
-             style={{
-               flexGrow : '0.2',
-               borderRight : 'none',
-               paddingRight : '0'
-             }}
+             className="form-control countryCode"
              onChange={this.props.onChange}
-             placeholder="+7"/>)
+             value={this.props.value}
+             placeholder="+7"
+             tabIndex="4"/>)
   }
 }
 
-CountryNumber.propTypes = {
-  onChange : PropTypes.func
-};
+/*CountryNumber.propTypes = {
+  onChange : PropTypes.func,
+  value: PropTypes.string
+};*/
 export default CountryNumber;

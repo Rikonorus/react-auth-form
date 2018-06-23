@@ -1,17 +1,16 @@
 import React, {Component} from 'react';
-import PropTypes from 'prop-types';
+/*import PropTypes from 'prop-types';*/
 import Flag from '../Flag/Flag';
 import FlagSelector from '../FlagSelector/FlagSelector';
 
 
 class CountrySelector extends Component {
   state = {
-    countryCode : "ru",
     showFlags : false
   };
   selectCountry = (value) => {
     this.setState({
-      countryCode : value,
+      // countryCode : value,
       showFlags : false
     });
     this.props.onSelectCountry(value);
@@ -25,7 +24,7 @@ class CountrySelector extends Component {
   render() {
     return (
       <div className="dropdown" style={{display : 'flex'}}>
-        <Flag countryCode={this.state.countryCode}
+        <Flag countryCode={this.props.value}
               onClick={this.toggleCountriesMenu}/>
         <FlagSelector needShowFlags={this.state.showFlags}
                       onClick={this.toggleCountriesMenu}
@@ -35,8 +34,9 @@ class CountrySelector extends Component {
   }
 }
 
-CountrySelector.propTypes = {
+/*CountrySelector.propTypes = {
+  value : PropTypes.string.isRequired,
   onSelectCountry : PropTypes.func.isRequired
-};
+};*/
 
 export default CountrySelector;

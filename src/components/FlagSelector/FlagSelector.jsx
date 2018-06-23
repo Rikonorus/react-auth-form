@@ -1,15 +1,7 @@
 import React, {Component} from 'react';
-import PropTypes from "prop-types";
+/*import PropTypes from "prop-types";*/
 import Flag from '../Flag/Flag';
-
-
-let flagsMap = {
-  "+7" : "ru",
-  "+81" : "jp",
-  "+86" : "cn",
-  "+93" : "af",
-  "+47" : "no"
-};
+import flagsMap from '../../serverData/CountriesFlagsMap'
 
 class FlagSelector extends Component {
   onSelectFlag = (e) => {
@@ -22,10 +14,11 @@ class FlagSelector extends Component {
         <button
           className="btn btn-sm dropdown-toggle dropdown-btn"
           type="button"
-          onClick={this.props.onClick}>
-        </button>
-        <div
-          className={`dropdown-menu ${(this.props.needShowFlags && "show") || ''}`}
+          onClick={this.props.onClick}
+          tabIndex="99"/>
+
+        {this.props.needShowFlags && <div
+          className={'dropdown-menu show'}
           style={{minWidth : "0"}}>
           {Object
             .values(flagsMap)
@@ -35,13 +28,13 @@ class FlagSelector extends Component {
                      onClick={this.onSelectFlag}/>)
             )
           }
-        </div>
+        </div>}
       </div>
     )
   }
 }
 
-FlagSelector.propTypes = {
+/*FlagSelector.propTypes = {
   needShowFlags : PropTypes.bool.isRequired
-};
+};*/
 export default FlagSelector;

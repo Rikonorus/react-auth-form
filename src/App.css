@@ -1,48 +1,59 @@
-.App {
-  text-align: center;
+.form__user-name {
+    width: 50%;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.form__user-surname {
+    width: 50%;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+.hidden {
+    display: none;
 }
 
-.App-title {
-  font-size: 1.5em;
+.sing-up-btn {
+    width: 80%;
+    margin: auto;
 }
 
-.App-intro {
-  font-size: large;
+.form__label {
+    font-size: 13px;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-.form__user-name{
-  width: 50%;
-}
-.form__user-surname{
-  width: 50%;
-}
-.hidden{
-  display: none;
-}
-.sing-up-btn{
-  width: 80%;
-  margin: auto;
-}
-.form__label{
-  font-size:13px;
-}
-.dropdown-btn{
+.dropdown-btn {
     background-color: inherit;
-    width: 10px;  
+    width: 10px;
+}
+
+.phoneInput .form-control:focus {
+    border: none;
+}
+
+.countryCode {
+    flex-shrink: 4;
+    border-right: none;
+    padding-right: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.countryCode:focus {
+    border-color: rgb(206, 212, 218);
+    box-shadow: none;
+}
+
+.phoneNumber {
+    border-left: none;
+    padding-left: 0;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.phoneNumber:focus {
+    border-color: rgb(206, 212, 218);
+    box-shadow: none;
+}
+
+.fullNumber {
+    flex-basis: 76%;
+    display: flex;
 }

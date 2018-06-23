@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import './App.css';
-
 import PhoneNumberInput from './components/PhoneNumberInput/PhoneNumberInput';
 import ProfessionInput from "./components/ProfessionInput/ProfessionInput";
 
@@ -9,6 +8,7 @@ class App extends Component {
     name : '',
     surname : '',
     profession : '',
+    phoneNumber : ''
   };
   onChangeName = (e) => {
     this.setState({
@@ -23,6 +23,11 @@ class App extends Component {
   onChangeProfession = (value) => {
     this.setState({
       profession : value
+    })
+  };
+  onChangePhoneNumber = (value) => {
+    this.setState({
+      phoneNumber : value
     })
   };
 
@@ -42,6 +47,7 @@ class App extends Component {
                    placeholder="Сергей"
                    onChange={this.onChangeName}
                    value={this.state.name}
+                   tabIndex="1"
             />
           </div>
           <div className="form-group col-md-6 form__user-surname">
@@ -52,12 +58,14 @@ class App extends Component {
                    placeholder="Миргород"
                    onChange={this.onChangeSurname}
                    value={this.state.surname}
+                   tabIndex="2"
             />
           </div>
           <ProfessionInput value={this.state.profession}
                            onChange={this.onChangeProfession}/>
         </div>
-        <PhoneNumberInput/>
+        <PhoneNumberInput value={this.state.phoneNumber}
+                          onChange={this.onChangePhoneNumber}/>
         <button type="submit" className="btn btn-primary btn-block sing-up-btn">Зарегистрироваться</button>
       </form>
     );
