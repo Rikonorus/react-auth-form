@@ -8,6 +8,9 @@
     background: url('flags.png') no-repeat;
 }
 
+.flag.empty{
+    visibility: collapse;
+}
 
 .flag.flag-ws {
     background-position: -256px -448px;

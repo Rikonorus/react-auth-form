@@ -3,7 +3,7 @@ import React from 'react';
 import './flags.css';
 
 const Flag = (props) => {
-  return <div className={`flag flag-${props.countryCode}`}
+  return <div className={`flag ${props.countryCode ? 'flag-' + props.countryCode : 'empty'}`}
               onClick={props.onClick}
               value={props.countryCode}/>
 };
